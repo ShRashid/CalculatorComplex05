@@ -1,15 +1,19 @@
-package complexCalculator3;
+package complexCalculator5;
 
 import java.util.Scanner;
 
 public class ViewCalculator {   
 
     LoggingService loggingSv = new LoggingService();
-    ComplexOperation addOperation = new AddOperation();
-    ComplexOperation subtractOperation = new SubtractOperation();
-    ComplexOperation multiplyOperation = new MultiplyOperation();
-    ComplexOperation divideOperation = new DivideOperation();
 
+    OperationFactory operationFactory = new ConcreteOperationFactory();
+
+    ComplexOperation addOperation = operationFactory.createAddOperation();
+    ComplexOperation subtractOperation = operationFactory.createSubtractOperation();
+    ComplexOperation multiplyOperation = operationFactory.createMultiplyOperation();
+    ComplexOperation divideOperation = operationFactory.createDivideOperation();
+
+   
     public void run() {
         while (true) {
             int real1 = promptInt("Введите действительное число: ");
